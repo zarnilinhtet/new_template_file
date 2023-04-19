@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <!-- Content Header (Page header) -->
+
 <section class="content-header">
     <div class="container-fluid mt-2">
         <div class="row mb-2">
@@ -46,7 +47,8 @@
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-
+                        <button type="button" class="btn btn-secondary hide_bar" onclick="toggleNav()">Hide Navigation
+                            Bar</button>
                         <div class="row">
                             @foreach($lines as $line)
                             <div class="col-6 col-md-3 text-center my-2">
@@ -54,17 +56,18 @@
                                     data-target="#LineModalActive<?php echo $line->l_id; ?>"
                                     data-l_id="{{ $line->l_id }}" data-l_name="{{ $line->l_name }}"
                                     data-l_status="{{ $line->a_status }}" id="line_setting_btn"
-                                    style="background-color:#5C636A;color:#FFFFFF">
+                                    style="background-color:#5C636A;color:#FFFFFF" >
                                     {{ $line->l_name }}
                                 </button>
                             </div>
                             <!--Add Modal -->
-                            <div class="modal fade" id="LineModalActive<?php echo $line->l_id;?>" tabindex="-1"
+                            <div class="modal fade" id="LineModalActive<?php echo $line->l_id;?>"
                                 aria-labelledby="LineModalActiveLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-body">
-                                            <form id="line_assign_post" method="POST">
+                                        <div class="modal-body" id="myModal">
+                                            <form id="line_assign_post" method="POST"
+                                                action="{{ route('line_assign_post') }}">
                                                 @csrf
                                                 <div class="my-4">
                                                     <h1 class="fw-bold heading-text mb-3">Add Line Target</h1>
@@ -75,7 +78,8 @@
                                                     <div class="row g-3 my-2">
                                                         <div class="col-12 col-md-4 mt-0">
                                                             <label>Line Name <span class="star">*</span></label>​
-                                                            <select class="form-control" name="l_manager" required>
+                                                            <select class="form-control" name="line_id" id="line_id"
+                                                                required>
                                                                 <option value="0">Select Line Name</option>
                                                                 @foreach($lines as $eline)
                                                                 <option value="{{ $eline->l_id }}" {{ ( $eline->l_id ==
@@ -92,7 +96,8 @@
                                                                 value="Autofill Time" id="time_type_1">
                                                         </div>
                                                         <input type="hidden" class="form-control" name="work_hour"
-                                                            placeholder="7 Hours" id="work_hour" required readonly />
+                                                            value="8:30" placeholder="7 Hours" id="work_hour" required
+                                                            readonly />
 
                                                     </div>
                                                     <div class="row g-3 my-2">
@@ -132,13 +137,10 @@
                                                         </div>
                                                     </div>
                                                     <hr>
-                                                    <div id="dynamic_field_<?php echo $line->l_id; ?>">
+                                                    <div id="dynamic_field">
                                                         <div class="row g-3 my-2">
-                                                            <div class="col-12 col-md-3 mt-0">
-                                                                <label>Buyer<span class="star">*</span></label>
-
-                                                                <select class="js-data-example-ajax"></select>
-
+                                                            <div class="col-12 col-md-3"  >
+                                                                <label>Buyer<span class="star">*</span></label> <br>
                                                                 {{-- <select class="form-control select2"
                                                                     name="category_select[]" id="category_select">
                                                                     <option value=''>-- Select buyer --
@@ -148,8 +150,13 @@
                                                                         $buyer->buyer_name }}</option>
                                                                     @endforeach
                                                                 </select> --}}
+                                                                <select class="form-control" name="buyer_select[]"
+                                                                id="buyer_select" >
+                                                                <option value='' style="">-- Select buyer --</option>
+                                                               </select>
 
                                                             </div>
+
                                                             <div class="col-12 col-md-2 mt-0">
                                                                 <label>Style No<span class="star">*</span></label>
                                                                 <input type="text" class="form-control" id="style_name"
@@ -157,23 +164,19 @@
                                                             </div>
                                                             <div class="col-12 col-md-3 mt-0">
                                                                 <label>Item Name<span class="star">*</span></label>
-                                                                <div>
-                                                                    <select class="livesearch2 form-control p_name"
-                                                                        name="p_name[]" id="p_name">
-                                                                        <option value=''>-- Select item name --
-                                                                        </option>
-                                                                        @foreach($items as $item)
-                                                                        <option value="{{ $item->item_id }}">{{
-                                                                            $item->item_name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
+
+                                                                    <div class="form-group" >
+                                                                          <select class="form-control" name="item_select[]" id="item_select">
+                                                                            <option value=''>-- Select item --
+                                                                            </option>
+                                                                        </select>
+                                                                      </div>
                                                             </div>
                                                             <div class="col-12 col-md-2 mt-0">
                                                                 <label>Target<span class="star">*</span></label>
                                                                 <input type="number" class="form-control"
-                                                                    id="setting_target" placeholder="Target" min="1"
-                                                                    required />
+                                                                    name="m_target" id="m_target" placeholder="Target"
+                                                                    min="1" required />
                                                             </div>
                                                             <div class="col-12 col-md-2 mt-2">
                                                                 <button type="button" name="add" id="add_product_detail"
@@ -310,7 +313,6 @@
                                                 onclick="return confirm('Are you sure to delete?')"><i
                                                     class="fas fa-trash"></i></a>
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td>6</td>
@@ -329,7 +331,6 @@
                                                 onclick="return confirm('Are you sure to delete?')"><i
                                                     class="fas fa-trash"></i></a>
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td>7</td>
@@ -348,7 +349,6 @@
                                                 onclick="return confirm('Are you sure to delete?')"><i
                                                     class="fas fa-trash"></i></a>
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td>8</td>
@@ -367,7 +367,6 @@
                                                 onclick="return confirm('Are you sure to delete?')"><i
                                                     class="fas fa-trash"></i></a>
                                         </td>
-
                                     </tr>
                                 </tbody>
                             </table>
@@ -399,7 +398,7 @@
                                 <div class="row g-3 my-2">
                                     <div class="col-12 col-md-10 form-group">
                                         <label for="inputLineName">Line Name<span class="star">*</span></label>
-                                        <input type="text" class="form-control" id="line_name" name="line_name"
+                                        <input type="text" class="form-control" id="" name="line_name"
                                             placeholder="Line Name" required>
                                     </div>
                                     <div class=" col-12 col-md-10 form-group">
@@ -433,18 +432,15 @@
     </div>
     </div>
 </section>
-
-<script src="{{ asset('plugins/jquery/3.0.0-alpha1/jquery.min.js') }}"></script>
-
 <script type="text/javascript">
     $(document).ready(function () {
 
          var table = $('#linetable').DataTable({
-        "paging": true,
+        "paging": false,
         "lengthChange": false,
         "searching": false,
         "ordering": false,
-        "info": true,
+        "info": false,
         "autoWidth": false,
         "responsive": true,
         });
@@ -462,29 +458,6 @@
         lunch_end.val("12:00");
         progress.val("60");
         });
-
-
-        // $('.category_select_1').select2({
-        //         dropdownParent: $('#dynamic_field_1'),
-        //         tags:true,
-        //         ajax: {
-        //             url: "/buyer_search",
-        //             type: "GET",
-        //             dataType: 'json',
-        //             delay: 0,
-        //             data: function (params) {
-        //             return {
-        //             search: params.term // search term
-        //             };
-        //         },
-        //         processResults: function (response) {
-        //             return {
-        //             results: response
-        //             };
-        //         },
-        //         cache: true
-        //         }
-        // });
 
 
     //    $("#line_assign_post").submit(function(e) {
@@ -530,6 +503,51 @@
     //     });
 });
 
+$('#buyer_select').select2({
+                dropdownParent: $('#dynamic_field'),
+                tags:true,
+                ajax: {
+                    url: "/buyer_search",
+                    type: "GET",
+                    dataType: 'json',
+                    delay: 0,
+                    data: function (params) {
+                    return {
+                    search: params.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                    results: response
+                    };
+                },
+                cache: true
+                }
+        });
+
+
+$('#item_select').select2({
+                dropdownParent: $('#dynamic_field'),
+                tags:true,
+                ajax: {
+                    url: "/item_search",
+                    type: "GET",
+                    dataType: 'json',
+                    delay: 0,
+                    data: function (params) {
+                    return {
+                    search: params.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                    results: response
+                    };
+                },
+                cache: true
+                }
+        });
+
 
 function addRow() {
         const div = document.createElement('div');
@@ -538,7 +556,7 @@ function addRow() {
 
         div.innerHTML = `<div class="col-12 col-md-3 mt-0">
             <label>Buyer<span class="star">*</span></label>
-            <select class="livesearch form-control category_select" name="category[]" id="category_select">
+            <select class="livesearch form-control buyer_select" name="buyer_select[]" id="buyer_select">
                 <option value=''>-- Select buyer --
                 </option>
             </select>
@@ -550,8 +568,8 @@ function addRow() {
         <div class="col-12 col-md-3 mt-0">
             <label>Item Name<span class="star">*</span></label>
             <div>
-                <select class="livesearch2 form-control p_name" name="p_name[]" id="p_name">
-                    <option value=''>-- Select item name --
+                <select class="livesearch2 form-control item_select" name="item_select[]" id="item_select">
+                    <option value=''>-- Select item --
                     </option>
                 </select>
             </div>
@@ -574,3 +592,6 @@ function removeRow(div) {
 }
 </script>
 @endsection
+
+
+

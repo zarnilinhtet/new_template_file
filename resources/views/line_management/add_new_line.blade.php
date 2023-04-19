@@ -2,6 +2,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
+
     <div class="container-fluid mt-2">
         <div class="row mb-2">
 
@@ -34,15 +35,16 @@
         </div>
     </div><!-- /.container-fluid -->
 </section>
-
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="card">
+
                     <!-- /.card-header -->
                     <div class="card-body">
+                        <button type="button" class="btn btn-secondary hide_bar" onclick="toggleNav()" >Hide Navigation Bar</button>
                         <table id="linetable" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -187,11 +189,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
             var table = $('#linetable').DataTable({
-        "paging": true,
+        "paging": false,
         "lengthChange": false,
         "searching": true,
         "ordering": false,
-        "info": true,
+        "info": false,
         "autoWidth": false,
         "responsive": true,
         });

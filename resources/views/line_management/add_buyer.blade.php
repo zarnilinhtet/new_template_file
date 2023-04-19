@@ -47,6 +47,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                <button type="button" class="btn btn-secondary hide_bar" onclick="toggleNav()" >Hide Navigation Bar</button>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="buyertable" class="table table-bordered table-hover">

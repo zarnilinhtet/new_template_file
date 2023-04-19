@@ -4,34 +4,27 @@
 @section('content')
 <!-- Main content -->
 
-<?php
-$date = date(" d.m.Y");
-?>
-
 <section class="content p-2">
-
     <div class="container-fluid">
-
         <div class="row">
             <h3 class="p-2">Report</h3>
             <p class="card-title m-auto ">
             <h3 class="p-2">Date - <span>
-                    {{ $date }}
+                    <?php echo date("d.m.Y"); ?>
                 </span></h3>
             </p>
-            <input type="hidden" id="tdate" value="{{ $date }}">
+            <input type="hidden" id="tdate" value="<?php echo date(" d.m.Y"); ?>">
             <div class="col-12">
                 <div class="card">
-
                     <div class="card-header">
 
                         <div class="row">
                             <div class="col-md-3 mt-3">
                                 <div class="form-group">
 
-                                    <div class="input-group date" id="reservationdate">
-                                        <input  class="form-control" type="date" name="linedate" id="linedate"
-                                        value="<?php echo date('Y-m-d');?>" />
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="date" class="form-control  shadow-sm bg-white rounded"
+                                            data-target="#reservationdate" value="<?php echo date('Y-m-d');?>" />
 
                                         <button type="submit" class="btn btn-primary mx-3">Search</button>
 
@@ -44,29 +37,16 @@ $date = date(" d.m.Y");
                     <!-- /.card-header -->
 
                     <div class="card-body">
-
-
                         <div class="row">
-
                             <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button"
-                                            class="btn btn-secondary buttons-pdf buttons-html5">Edit</button>
-                                    </div>
+                                <button type="button" class="btn btn-primary ">Edit</button>
 
-                                    <div class="col-md-6">
-                                        <button class="btn btn-secondary buttons-pdf buttons-html5" id="btnExcel">Export
-                                            Excel</button>
-                                    </div>
-                                </div>
+                                <button id="btnExcel">Export Excel</button>
 
                                 <div class="table-responsive">
-
-
-
                                     <table id="tblExample"
                                         class="table table-bordered table-striped text-center border">
+
                                         <thead>
                                             <tr>
                                                 <th>Line</th>
@@ -103,23 +83,25 @@ $date = date(" d.m.Y");
                                                 <th>Remark</th>
                                             </tr>
                                         </thead>
+
                                         <tbody style="background-color: #F2F2F2">
                                             <tr>
                                                 <td style="vertical-align: middle;">1</td>
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6; border-right: 0;  border-bottom: 1px solid #DEE2E6;  border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                 border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                       border-left:background-color: #E6E6E6;">
+                                                                                                                                                            border-right: 0;
+                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                               border-left:background-color: #E6E6E6;">
                                                                 NEXT</td>
                                                         </tr>
                                                         <tr>
@@ -134,20 +116,17 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left:0">
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left:0">
                                                                 U79044</td>
                                                         </tr>
                                                         <tr>
@@ -358,18 +337,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                          border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                border-left: 0;background-color: #E6E6E6;">
+  border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                        border-right: 0;
+                                                                                                                                                        border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                        border-left:0">
+                                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                border-left:0">
                                                                 1,921</td>
                                                         </tr>
                                                         <tr>
@@ -385,18 +364,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -412,18 +391,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -439,18 +418,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 - </td>
                                                         </tr>
                                                         <tr>
@@ -472,7 +451,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                    background-color: #E6E6E6;">
+                                                                                                                                                                                                            background-color: #E6E6E6;">
                                                                     8
                                                                 </td>
                                                             </tr>
@@ -487,8 +466,7 @@ $date = date(" d.m.Y");
                                                                 <td style="background-color:#E6E6E6;">7</td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2" style="background-color: #E6E6E6;">
-                                                                    97
+                                                                <td colspan="2" style="background-color: #E6E6E6;">97
                                                                 </td>
                                                             </tr>
 
@@ -515,20 +493,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                        border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #F2F2F2;
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                                                               border-left:">
+                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                                                                       border-left:">
                                                                 M&S </td>
                                                         </tr>
                                                         <tr>
@@ -545,18 +521,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left: 0;">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left: 0;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left:0">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left:0">
                                                                 3366T </td>
                                                         </tr>
                                                         <tr>
@@ -764,18 +740,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                        border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                border-left:0">
+                                                                                                                                                                                                                                                        border-right: 0;
+                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                        border-left:0">
                                                                 128</td>
                                                         </tr>
                                                         <tr>
@@ -791,18 +767,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -818,18 +794,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -845,18 +821,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -878,7 +854,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                                                            background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    background-color: #F2F2F2;">
                                                                     10
                                                                 </td>
                                                             </tr>
@@ -893,8 +869,7 @@ $date = date(" d.m.Y");
                                                                 <td style="background-color:#F2F2F2;">10</td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2" style="background-color: #F2F2F2;">
-                                                                    57
+                                                                <td colspan="2" style="background-color: #F2F2F2;">57
                                                                 </td>
                                                             </tr>
 
@@ -918,20 +893,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                         border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                 border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                       border-left:background-color: #E6E6E6;">
+                                                                                                                                                            border-right: 0;
+                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                               border-left:background-color: #E6E6E6;">
                                                                 Takisada</td>
                                                         </tr>
                                                         <tr>
@@ -951,20 +924,17 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left:0">
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left:0">
                                                                 55937</td>
                                                         </tr>
                                                         <tr>
@@ -1211,18 +1181,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                        border-right: 0;
+                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                        border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                        border-left:0">
+                                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                border-left:0">
                                                                 9</td>
                                                         </tr>
                                                         <tr>
@@ -1243,18 +1213,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -1276,18 +1246,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -1308,18 +1278,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 - </td>
                                                         </tr>
                                                         <tr>
@@ -1346,7 +1316,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                    background-color: #E6E6E6;">
+                                                                                                                                                                                                            background-color: #E6E6E6;">
                                                                     8
                                                                 </td>
                                                             </tr>
@@ -1361,8 +1331,7 @@ $date = date(" d.m.Y");
                                                                 <td style="background-color:#E6E6E6;">7</td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2" style="background-color: #E6E6E6;">
-                                                                    97
+                                                                <td colspan="2" style="background-color: #E6E6E6;">97
                                                                 </td>
                                                             </tr>
 
@@ -1386,20 +1355,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                        border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #F2F2F2;
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                                                               border-left:">
+                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                                                                       border-left:">
                                                                 M&S </td>
                                                         </tr>
                                                         <tr>
@@ -1427,18 +1394,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left: 0;">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left: 0;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left:0">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left:0">
                                                                 3367T </td>
                                                         </tr>
                                                         <tr>
@@ -1754,18 +1721,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                        border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                border-left:0">
+                                                                                                                                                                                                                                                        border-right: 0;
+                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                        border-left:0">
                                                                 776</td>
                                                         </tr>
                                                         <tr>
@@ -1793,18 +1760,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -1833,18 +1800,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -1872,18 +1839,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -1917,7 +1884,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                                                            background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    background-color: #F2F2F2;">
                                                                     10
                                                                 </td>
                                                             </tr>
@@ -1958,12 +1925,10 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                         border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                 border-left: 0;"> -
                                                             </td>
                                                         </tr>
 
@@ -1979,20 +1944,17 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left:0">
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left:0">
                                                                 2053T</td>
                                                         </tr>
 
@@ -2153,18 +2115,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                          border-bottom: 1px solid #DEE2E6;
-                                          border-right: 0;
-                                                                                                                                                                                                border-left: 0;background-color: #E6E6E6;">
+  border-bottom: 1px solid #DEE2E6;
+  border-right: 0;
+                                                                                                                                                        border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                        border-left:0">
+                                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                border-left:0">
                                                                 512</td>
                                                         </tr>
 
@@ -2175,18 +2137,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
 
@@ -2197,18 +2159,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
 
@@ -2219,18 +2181,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 - </td>
                                                         </tr>
 
@@ -2247,7 +2209,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                    background-color: #E6E6E6;">
+                                                                                                                                                                                                            background-color: #E6E6E6;">
                                                                     5
                                                                 </td>
                                                             </tr>
@@ -2262,8 +2224,7 @@ $date = date(" d.m.Y");
                                                                 <td style="background-color:#E6E6E6;">5</td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2" style="background-color: #E6E6E6;">
-                                                                    70
+                                                                <td colspan="2" style="background-color: #E6E6E6;">70
                                                                 </td>
                                                             </tr>
 
@@ -2289,20 +2250,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                        border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #F2F2F2;
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                                                               border-left:">
+                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                                                                       border-left:">
                                                                 M&S </td>
                                                         </tr>
                                                         <tr>
@@ -2330,18 +2289,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left: 0;">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left: 0;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left:0">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left:0">
                                                                 3366T </td>
                                                         </tr>
                                                         <tr>
@@ -2657,18 +2616,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                        border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                border-left:0">
+                                                                                                                                                                                                                                                        border-right: 0;
+                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                        border-left:0">
                                                                 3</td>
                                                         </tr>
                                                         <tr>
@@ -2696,18 +2655,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -2736,18 +2695,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -2775,18 +2734,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -2820,7 +2779,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                                                            background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    background-color: #F2F2F2;">
                                                                     16
                                                                 </td>
                                                             </tr>
@@ -2862,20 +2821,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                         border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                 border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                       border-left:background-color: #E6E6E6;">
+                                                                                                                                                            border-right: 0;
+                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                               border-left:background-color: #E6E6E6;">
                                                                 Next</td>
                                                         </tr>
                                                         <tr>
@@ -2902,20 +2859,17 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left:0">
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left:0">
                                                                 U79045</td>
                                                         </tr>
                                                         <tr>
@@ -3222,18 +3176,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                        border-right: 0;
+                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                        border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                        border-left:0">
+                                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                border-left:0">
                                                                 14</td>
                                                         </tr>
                                                         <tr>
@@ -3259,18 +3213,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -3297,18 +3251,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -3334,18 +3288,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 - </td>
                                                         </tr>
                                                         <tr>
@@ -3377,7 +3331,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                    background-color: #E6E6E6;">
+                                                                                                                                                                                                            background-color: #E6E6E6;">
                                                                     8
                                                                 </td>
                                                             </tr>
@@ -3420,20 +3374,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                        border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #F2F2F2;
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                                                               border-left:">
+                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                                                                       border-left:">
                                                                 Next </td>
                                                         </tr>
                                                         <tr>
@@ -3467,18 +3419,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left: 0;">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left: 0;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;background-color: #F2F2F2;
-                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                    border-left:0">
+                                                                                                                                            border-right: 0;
+                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                            border-left:0">
                                                                 756204 </td>
                                                         </tr>
                                                         <tr>
@@ -3841,18 +3793,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                        border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                border-right: 0;
-                                                                                                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                border-left:0">
+                                                                                                                                                                                                                                                        border-right: 0;
+                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                        border-left:0">
                                                                 4</td>
                                                         </tr>
                                                         <tr>
@@ -3885,18 +3837,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -3925,18 +3877,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -3964,18 +3916,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                            border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                    border-left: 0;background-color: #F2F2F2;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                                                                    border-left:0">
+                                                                                                                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                                                            border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -4009,7 +3961,7 @@ $date = date(" d.m.Y");
                                                                 </td>
                                                                 <td
                                                                     style="
-                                                                                                                                                                                                                                                                                            background-color: #F2F2F2;">
+                                                                                                                                                                                                                                                    background-color: #F2F2F2;">
                                                                     1
                                                                 </td>
                                                             </tr>
@@ -4051,20 +4003,18 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0 ">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                         border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                 border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                    border-bottom: 1px solid #E6E6E6;
-                                                                                                                                                                                                       border-left:background-color: #E6E6E6;">
+                                                                                                                                                            border-right: 0;
+                                                                                                                                                            border-bottom: 1px solid #E6E6E6;
+                                                                                                                                                               border-left:background-color: #E6E6E6;">
                                                                 NEXT</td>
                                                         </tr>
                                                         <tr>
@@ -4079,20 +4029,17 @@ $date = date(" d.m.Y");
                                                 <td class="p-0">
                                                     <table class="w-100 text-center m-0">
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left: 0;">
-                                                                -
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left: 0;"> -
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td
-                                                                style="border-top:0;background-color: #E6E6E6;
-                                                                                                                                            border-right: 0;
-                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                            border-left:0">
+                                                            <td style="border-top:0;background-color: #E6E6E6;
+                                                                                                    border-right: 0;
+                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                    border-left:0">
                                                                 828527</td>
                                                         </tr>
                                                         <tr>
@@ -4302,18 +4249,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                          border-bottom: 1px solid #DEE2E6;
-                                                                                                                          border-right: 0;
-                                                                                                                      border-left: 0;background-color: #E6E6E6;">
+  border-bottom: 1px solid #DEE2E6;
+                                                                                  border-right: 0;
+                                                                              border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                        border-right: 0;
-                                                                                                                                                                                                                                                        border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                        border-left:0">
+                                                                                                                                                                                                                border-right: 0;
+                                                                                                                                                                                                                border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                border-left:0">
                                                                 538</td>
                                                         </tr>
                                                         <tr>
@@ -4330,18 +4277,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -4357,18 +4304,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 -</td>
                                                         </tr>
                                                         <tr>
@@ -4384,18 +4331,18 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                    border-right: 0;
-                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                    border-left: 0;background-color: #E6E6E6;">
+                                                                                                                                                                                                            border-right: 0;
+                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                            border-left: 0;background-color: #E6E6E6;">
                                                                 -
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                                                                                            border-right: 0;
-                                                                                                                                                                                                                                                                                                            border-bottom: 1px solid #DEE2E6;
-                                                                                                                                                                                                                                                                                                            border-left:0">
+                                                                                                                                                                                                                                                                    border-right: 0;
+                                                                                                                                                                                                                                                                    border-bottom: 1px solid #DEE2E6;
+                                                                                                                                                                                                                                                                    border-left:0">
                                                                 - </td>
                                                         </tr>
                                                         <tr>
@@ -4428,8 +4375,7 @@ $date = date(" d.m.Y");
                                                                 <td style="background-color:#E6E6E6;">8</td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan="2" style="background-color: #E6E6E6;">
-                                                                    99
+                                                                <td colspan="2" style="background-color: #E6E6E6;">99
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -4549,7 +4495,7 @@ $date = date(" d.m.Y");
                                                         <tr>
                                                             <td
                                                                 style="border-top:0;
-                                                                                                                                                                                                                                        border-right: 0;border:none;                                                                         border-left: 0;background-color: #F2F2F2;">
+                                                                                                                                                                                                border-right: 0;border:none;                                                                         border-left: 0;background-color: #F2F2F2;">
                                                                 10808
                                                             </td>
                                                         </tr>
@@ -4624,6 +4570,7 @@ $date = date(" d.m.Y");
 
 
 
+
                                 </div>
                             </div>
                         </div>
@@ -4637,24 +4584,12 @@ $date = date(" d.m.Y");
 </section>
 <script src="{{ asset('plugins/jquery/3.0.0-alpha1/jquery.min.js') }}"></script>
 <script type="text/javascript">
-    $("#btnExcel").click(function(){
-        XLExport("tblExample");
+    document.getElementById("btnExcel").onclick = function() {
+        alert("hello");
+        // XLExport("tblExample");
+     };
 
-    })
-    function XLExport(tableId) {
-        var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
-        var textRange;
-        var j = 0;
-        tab = document.getElementById(tableId);
-        for (j = 0 ; j < tab.rows.length ; j++) {
-            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
-        }
-        tab_text = tab_text + "</table>";
-        tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
-        tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
-        tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // remove input params
-        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
-        return (sa);
-    }
+
 </script>
+
 @endsection

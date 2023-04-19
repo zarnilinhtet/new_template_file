@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="120">
     <title>Line Management Software</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('dist/img/companylogo.png')  }}">
 
@@ -36,17 +37,20 @@
     <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 
-    {{-- Select 2 --}}
-    {{-- <script src="{{ asset('dist/js/select2.min,js') }}"></script>
-    <link href="{{ asset('dist/css/select2.min.css') }}" rel="stylesheet" /> --}}
+    {{-- Select 2 start --}}
+    <link rel="stylesheet" href="{{ asset('css/select2/select2.min.css') }}"/>
+    <script src="{{ asset('js/select2/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/select2/select2.min.js') }}"></script>
+
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> --}}
 
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+    {{-- Select 2 End --}}
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition layout-bottom-nav">
     @if(request()->is('/'))
     @yield('content')
     @else
@@ -126,7 +130,35 @@
           "autoWidth": false,
           "responsive": true,
         });
+        $("#tblExample").DataTable({
+        "searching": false,
+        "ordering": false,
+        "paging": false,
+        "info": false,
+        "responsive": false, "lengthChange": false, "autoWidth": false,
+        "buttons": [{
+        text: 'Export PDF',
+        extend: 'pdfHtml5',
+        title: 'Line_Report_'+$("#tdate").val(),
+        orientation: 'landscape',
+        pageSize: 'A3',
+        }]
+        }).buttons().container().appendTo('.col-md-6:eq(1)');
       });
+
+
+    </script>
+
+    <script>
+          function toggleNav() {
+     var hideNav = document.getElementById('navbar');
+
+    if (hideNav.style.display === 'none') {
+            hideNav.style.display = 'block';
+       } else {
+           hideNav.style.display = 'none';
+       }
+    }
     </script>
 </body>
 

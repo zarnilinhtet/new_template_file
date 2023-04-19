@@ -5,7 +5,8 @@ $roleid = Auth::user()->role;
 @endphp
 <!-- Navbar -->
 @if ($roleid != 2)
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<div id="navbar">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" id="collapse_div">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -19,7 +20,7 @@ $roleid = Auth::user()->role;
     <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <a class="nav-link" data-widget="fullscreen" href="#collapse_div" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
@@ -37,13 +38,13 @@ $roleid = Auth::user()->role;
 
     </ul>
 </nav>
-
+</div>
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
 
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" id="navbar">
     <!-- Brand Logo -->
     <a href="#" class="brand-link" style="border-bottom: 1px solid #dee2e6;">
         <img src="{{ asset('dist/img/companylogo.png')  }}" alt="Company Logo" class="brand-image elevation-3"

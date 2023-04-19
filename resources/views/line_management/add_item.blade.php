@@ -47,6 +47,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <button type="button" class="btn btn-secondary hide_bar" onclick="toggleNav()" >Hide Navigation Bar</button>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="form-group">
@@ -196,11 +197,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
             var table = $('#itemtable').DataTable({
-        "paging": true,
+        "paging": false,
         "lengthChange": false,
         "searching": true,
         "ordering": false,
-        "info": true,
+        "info": false,
         "autoWidth": false,
         "responsive": true,
         });

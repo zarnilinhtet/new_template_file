@@ -94,7 +94,6 @@ body {
 }
 
 
-
 /* ZN */
 
 div .dt-buttons {
@@ -114,7 +113,6 @@ div .dt-buttons {
     margin-left: 3px;
     float: right;
 }
-
 
 
 
@@ -146,10 +144,7 @@ div .dt-buttons {
     letter-spacing: 5px;
     margin-left: 3px;
     float: left;
-    /* color: #0070C0;
-    font-size: 110px;
-    font-weight: 700;
-    margin-top: -50px; */
+
 
 }
 
@@ -257,7 +252,7 @@ th, td {
 
 .register-page {
     background-image: url("../images/bg3.jpg");
-    /* height: 937px; */
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -271,6 +266,15 @@ th, td {
 .heading-text {
     color: #6495ed;
 }
+.hide_bar{
+
+
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+    z-index: 3;
+
+  }
 
 @media only screen and (max-width: 850px) {
     .d_time {

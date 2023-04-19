@@ -13,7 +13,7 @@ use App\Http\Controllers\LineHistoryController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\ImportExportController;
-
+use App\Http\Controllers\LineAssignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +78,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //// Search in LineSetting ////
 Route::get('buyer_search', [LineDataController::class, 'buyerSearch'])->middleware('auth');
 Route::get('item_search', [LineDataController::class, 'itemSearch'])->middleware('auth');
+
+// Livewire
+// // Route::get('/one/{id}', [One::class]);
+// Route::post('/line_assign_post', 'LineAssignController@postLineSetting')->middleware('auth');
+
+Route::post('/line_assign_post', [LineDataController::class, 'line_assign_post'])->name('line_assign_post')->middleware('auth');

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buyer;
 use App\Models\Item;
 use App\Models\Line;
+use App\Models\Time;
+use App\Models\Buyer;
 use App\Models\LineAssign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -160,9 +161,7 @@ class LineDataController extends Controller
                 "text" => $buyer->buyer_name
             );
         }
-        var_dump($response);
-        die();
-        // return response()->json($response);
+        return response()->json($response);
     }
 
     public function itemSearch(Request $request)
@@ -184,4 +183,43 @@ class LineDataController extends Controller
         }
         return response()->json($response);
     }
+
+   public function line_assign_post(Request $request)
+   {
+
+    $date =  date("d.m.Y");
+
+    $this->validate($request, [
+        'line_id' => 'required',
+        'm_target'=>'required',
+        'start_time'=>'required',
+        'lunch_start'=>'required',
+        'lunch_end'=>'required',
+        'end_time'=>'required',
+        'progress'=>'required'
+
+    ]);
+    // print_r($data);
+    $data= LineAssign::create([
+        'user_id' => Auth::user()->id,
+        'l_id'=>$request->line_id,
+        'main_target'=>$request->m_target,
+        's_time'=>$request->start_time,
+        'e_time'=>$request->end_time,
+        'lunch_s_time'=>$request->lunch_start,
+        'lunch_e_time'=>$request->lunch_end,
+        'cal_work_min'=>$request->progress,
+        't_work_hr' => $request->work_hour,
+        'assign_date' => $date
+
+    ])->get()->last();
+
+    $assign_id = $data['assign_id'];
+
+        Time::create([
+
+        ]);
+
+    return redirect('/line_data');
+}
 }

@@ -5,6 +5,7 @@
 @if(Auth::user()->role != 2)
 
 <!-- Content Header (Page header) -->
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -40,6 +41,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+           
+                    <button type="button" class="btn btn-secondary hide_bar" onclick="toggleNav()" >Hide Navigation Bar</button>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
